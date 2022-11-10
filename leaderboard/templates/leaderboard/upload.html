@@ -1,0 +1,18 @@
+{%extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<title>Import csv file</title>
+<h1> Import csv file </h1>
+
+<h5>Insert a file to import.</h5>
+
+<form action="{% url 'upload-view' %}" method="POST" class="ui form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Confirm</button>
+</form>
+
+
+{% endblock %}
