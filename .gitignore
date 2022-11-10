@@ -1,0 +1,9 @@
+/env
+/.env
+__pycache__/
+**/*.pyc`
+/workspace.code-workspace
+*.db.sqlite3
+*requirements.txt
+*/migrations
+db.sqlite3
