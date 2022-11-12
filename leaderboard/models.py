@@ -24,14 +24,9 @@ class Tournament(models.Model):
     def __str__(self):
         return str(self.name)
 
-    # def get_all_players(self):
-    #     return self.tournament.all()
 
-
-# Note: this is really a "user", but since Django already provides a User
-#       model we don't want to override it. Instead we want to create some
-#       additional properties and link it to a user.
 class SingleTournament(models.Model):
+    name = models.CharField(max_length=250, unique=False)
     season = models.ManyToManyField(Tournament, related_name='t_name')
     player = models.CharField(max_length=150, null=True, blank=False, unique=True)
     points = models.IntegerField(default=0)
@@ -39,16 +34,15 @@ class SingleTournament(models.Model):
     bonus_b = models.IntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-
-
-    def get_all_players(self):
-        for name in self.tournament.all():
-            return name
+    totalpoints = models.IntegerField(default=0)
 
     @property
     def total_points(self):
         return self.points + self.bonus_a + self.bonus_b
 
+    def get_all_players(self):
+        for name in self.season.all():
+            return name
 
     def __str__(self):
         return f"{self.player}"
@@ -60,8 +54,15 @@ class SingleTournament(models.Model):
         """
         return reverse("add_player")
 
+    def save(self, *args, **kwargs):
+        sum_of_points = self.points + self.bonus_a + self.bonus_b
+        self.totalpoints = int(sum_of_points)/100
+        super(SingleTournament, self).save(*args, **kwargs)
 
 
+# Note: this is really a "user", but since Django already provides a User
+#       model we don't want to override it. Instead we want to create some
+#       additional properties and link it to a user.
 # automatically create/update profile when a User is created
 class Admin(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
