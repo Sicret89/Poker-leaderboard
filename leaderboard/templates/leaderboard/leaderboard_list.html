@@ -1,47 +1,71 @@
 <!DOCTYPE html>
 {%extends 'core/base.html' %}
 {% load static %}
-
-
 {% block content %}
-<title> Turniej </title>
-<h1> Turniej </h1>
 
 <div class="table-responsive-sm table-bordered">
-    <table class="table table-striped table-hover">
-        <thead>
-            {% if object_list %}
-            <tr>
-                <th scope="col">Miejsce</th>
-                <th scope="col">Nick</th>
-                <th scope="col">S1E1</th>
-                <th scope="col">S1E2</th>
-                <th scope="col">S1E3</th>
-                <th scope="col">S1E4</th>
-                <th scope="col">S1E5</th>
-                <th scope="col">S1E6</th>
-                <th scope="col">S1E7</th>
-                <th scope="col">S1E8</th>
-                <th scope="col">S1E9</th>
-                <th scope="col">S1E10</th>
-                <th scope="col">S1E11</th>
-                <th scope="col">S1E12</th>
-                <th scope="col">Suma</th>
-            </tr>
+    <table class="table table-borderless table-dark table-striped table-hover table-responsive-stack">
+        {% if object_list %}
+        <thead class="text-center">
+          <tr>
+            <th scope="col">Pos</th>
+            <th class="text-start" scope="col">Name</th>
+            <th scope="col">Photo</th>
+            <th scope="col">S1E1</th>
+            <th scope="col">S1E2</th>
+            <th scope="col">S1E3</th>
+            <th scope="col">S1E4</th>
+            <th scope="col">S1E5</th>
+            <th scope="col">S1E6</th>
+            <th scope="col">S1E7</th>
+            <th scope="col">S1E8</th>
+            <th scope="col">S1E9</th>
+            <th scope="col">S1E10</th>
+            <th scope="col">S1E11</th>
+            <th scope="col">S1E12</th>
+            <th scope="col">Score</th>
+            {% if user.is_superuser %}
+            <th>Actions</th>
+            {% endif %}
+          </tr>
         </thead>
-        <tbody>
-            {% for unique in only_unique %}
+        <tbody class="text-center">
+          {% for player in player_list %}
             <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ unique.name }}</td>
-                <td>{{ unique.totalpoints }}</td>
+              {% if forloop.counter == 1 %}
+              <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+              {% else %}
+              <td>{{ forloop.counter }}</td>
+              {% endif %}
+              <td>{{ player.name }}</td>
+              <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+              <td>{{ player.event01 }}</td>
+              <td>{{ player.event02 }}</td>
+              <td>{{ player.event03 }}</td>
+              <td>{{ player.event04 }}</td>
+              <td>{{ player.event05 }}</td>
+              <td>{{ player.event06 }}</td>
+              <td>{{ player.event07 }}</td>
+              <td>{{ player.event08 }}</td>
+              <td>{{ player.event09 }}</td>
+              <td>{{ player.event10 }}</td>
+              <td>{{ player.event11 }}</td>
+              <td>{{ player.event12 }}</td>
+              <td>{{ player.total }}</td>
+              {% if user.is_superuser %}
+                <td class="text-center">
+                    <a href="{% url 'dashboard' player.id %}"
+                        ><i class="fas fa-edit" style="color: #ffffff;"></i
+                    ></a>
+                </td>
+              {% endif %}
             </tr>
-            {% endfor %}
+          {% endfor %}
         </tbody>
-    </table>
+      </table>
 </div>
 {% else %}
-<p><b>No api are available</b></p>
+<p><b>No data are available</b></p>
 {% endif %}
 
 

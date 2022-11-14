@@ -1,63 +1,48 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
+
+from leaderboard.managers import PlayerManager
+from django.db import models
+from django.db.models import F
+from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
-from django.utils import timezone
-from django.urls import reverse
+from mojang import MojangAPI
 
 
-class League(models.Model):
-    name = models.TextField()
+class Player(models.Model):
+    name = models.CharField(max_length=256)
+    uuid = models.CharField(
+        max_length=32, blank=True)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    event01 = models.IntegerField(default=0)
+    event02 = models.IntegerField(default=0)
+    event03 = models.IntegerField(default=0)
+    event04 = models.IntegerField(default=0)
+    event05 = models.IntegerField(default=0)
+    event06 = models.IntegerField(default=0)
+    event07 = models.IntegerField(default=0)
+    event08 = models.IntegerField(default=0)
+    event09 = models.IntegerField(default=0)
+    event10 = models.IntegerField(default=0)
+    event11 = models.IntegerField(default=0)
+    event12 = models.IntegerField(default=0)
+    _total = None
+
+    objects = PlayerManager(
+        total=F('event01') + F('event02') + F('event03') +
+        F('event04') + F('event05') + F('event06') +
+        F('event07') + F('event08') + F('event09') +
+        F('event10') + F('event11') + F('event12'),
+    )
 
     def __str__(self):
         return self.name
 
-
-class Tournament(models.Model):
-    name = models.CharField(max_length=250, unique=True)
-    date = models.DateTimeField(default=timezone.now)
-
-
-    def __str__(self):
-        return str(self.name)
-
-
-class SingleTournament(models.Model):
-    name = models.CharField(max_length=250, unique=False)
-    season = models.ManyToManyField(Tournament, related_name='t_name')
-    player = models.CharField(max_length=150, null=True, blank=False, unique=True)
-    points = models.IntegerField(default=0)
-    bonus_a = models.IntegerField(default=0)
-    bonus_b = models.IntegerField(default=0)
-    date = models.DateTimeField(default=timezone.now)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    totalpoints = models.IntegerField(default=0)
-
-    @property
-    def total_points(self):
-        return self.points + self.bonus_a + self.bonus_b
-
-    def get_all_players(self):
-        for name in self.season.all():
-            return name
-
-    def __str__(self):
-        return f"{self.player}"
-
-    def get_absolute_url(self) -> str:
-        """
-        Retrieves url to self
-        :return: Url to self resource.
-        """
-        return reverse("add_player")
-
-    def save(self, *args, **kwargs):
-        sum_of_points = self.points + self.bonus_a + self.bonus_b
-        self.totalpoints = int(sum_of_points)/100
-        super(SingleTournament, self).save(*args, **kwargs)
+@receiver(pre_save, sender=Player)
+def get_data(sender, instance, *args, **kwargs):
+    instance.uuid = MojangAPI.get_uuid(instance.name)
 
 
 # Note: this is really a "user", but since Django already provides a User

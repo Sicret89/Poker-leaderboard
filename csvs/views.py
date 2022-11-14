@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from leaderboard.models import SingleTournament, Tournament
+from leaderboard.models import Player
 from .models import Csv
 from .forms import CsvModelForm
 import csv
@@ -19,17 +19,21 @@ def upload_file_view(request):
                     pass
                 else:
                     for row in reader:
-                        single, _ = SingleTournament.objects.get_or_create(
+                        single, _ = Player.objects.get_or_create(
                             name=row[1],
-                            player=row[1]+row[0],
-                            points=row[2],
-                            bonus_a=row[3],
-                            bonus_b=row[4],
+                            event01=row[2],
+                            event02=row[3],
+                            event03=row[4],
+                            event04=row[5],
+                            event05=row[6],
+                            event06=row[7],
+                            event07=row[8],
+                            event08=row[9],
+                            event09=row[10],
+                            event10=row[11],
+                            event11=row[12],
+                            event12=row[13],
                         )
-                        seasons = row[0]
-                        for season in seasons:
-                            name, _ = Tournament.objects.get_or_create(name=seasons)
-                            single.season.add(name)
             obj.activated = True
             obj.save()
     return render(request, 'leaderboard/upload.html', {'form': form})

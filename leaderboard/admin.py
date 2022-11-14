@@ -1,12 +1,8 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 from django.contrib import admin
+from .models import Player
 
-# Register your models here.
-
-from .models import League, SingleTournament, Tournament, Admin
-
-admin.site.register(League)
-admin.site.register(Admin)
-admin.site.register(Tournament)
-admin.site.register(SingleTournament)
+@admin.register(Player)
+class PlayerAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',)
+    list_filter = ("name",)
+    search_fields = ['name']
