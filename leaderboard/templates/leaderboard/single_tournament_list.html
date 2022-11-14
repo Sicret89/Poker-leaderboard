@@ -6,64 +6,43 @@
 <title> Turniej  </title>
 <h1> Turniej </h1>
 
-
-<!-- Filter form section START -->
-<!--<form>-->
-<!--    <div class="form-row align-items-center" action="{% url 'leaderboard_list' %}" method="get">-->
-<!--        <div class="col-sm-2 my-1">-->
-<!--            <input name="title" type="text" class="form-control" placeholder="Title">-->
-<!--        </div>-->
-<!--        <div class="col-sm-2 my-1">-->
-<!--            <input name="author" type="text" class="form-control" placeholder="Author">-->
-<!--        </div>-->
-<!--        <div class="col-sm-2 my-1">-->
-<!--            <input name="publication_language" type="text" class="form-control" placeholder="Publication Language">-->
-<!--        </div>-->
-<!--        <div class="col-sm-2 my-1">-->
-<!--            <input name="publication_date_start" type="text" class="form-control" placeholder="Publication start date"-->
-<!--                class="textbox-n" onfocus="(this.type='date')">-->
-<!--        </div>-->
-<!--        <div class="col-sm-2 my-1">-->
-<!--            <input name="publication_date_end" type="text" class="form-control" placeholder="Publication end date"-->
-<!--                class="textbox-n" onfocus="(this.type='date')">-->
-<!--        </div>-->
-<!--        <div class="col-sm-2 my-1">-->
-<!--            <button type="submit" class="btn btn-primary">Search</button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</form>-->
-<!--Filter form section END -->
-<!--BOOKS LIST START -->
-
-
-<div class="table-responsive-sm table-bordered">
-    <table class="table table-striped table-hover">
-        <thead>
-            {% if object_list %}
-            <tr>
-                <th scope="col">Miejsce</th>
-                <th scope="col">Nick</th>
-                <th scope="col">Zdjęcie</th>
-                <th scope="col">Punkty</th>
-                <th scope="col">B: AKL</th>
-                <th scope="col">B: 47W</th>
-                <th scope="col">Suma</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for single in object_list %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ single.name }}</td>
-                <td><img class="rounded-circle player-img" src="{{ single.image.url }}" style="height: 35px; width: 35px;" /></a></td>
-                <td>{{ single.points }}</td>
-                <td>{{ single.bonus_a }}</td>
-                <td>{{ single.bonus_b }}</td>
-                <td>{{ single.totalpoints }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<!--<div class="table-responsive-sm table-bordered">-->
+<div class="card m-3" style="background-color: white; margin-top: auto">
+    <div class="card-body">
+        <div class="responsiveWrap" style="overflow-x: auto;">
+            <table class="table table-borderless table-striped table-hover table-responsive-stack">
+                <thead class="text-center">
+                    {% if object_list %}
+                    <tr>
+                        <th scope="col">Miejsce</th>
+                        <th scope="col">Nick</th>
+                        <th scope="col">Zdjęcie</th>
+                        <th scope="col">Punkty</th>
+                        <th scope="col">B: AKL</th>
+                        <th scope="col">B: 47W</th>
+                        <th scope="col">Suma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for single in object_list %}
+                    <tr>
+                        {% if forloop.counter == 1 %}
+                        <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                        {% else %}
+                        <td>{{ forloop.counter }}</td>
+                        {% endif %}
+                        <th>{{ single.name }}</th>
+                        <td><img class="rounded-circle player-img" src="{{ single.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                        <td>{{ single.points }}</td>
+                        <td>{{ single.bonus_a }}</td>
+                        <td>{{ single.bonus_b }}</td>
+                        <td>{{ single.totalpoints }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% else %}
 <p><b>No api are available</b></p>
