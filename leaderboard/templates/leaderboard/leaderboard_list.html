@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="table-responsive-sm table-bordered">
-    <table class="table table-borderless table-dark table-striped table-hover table-responsive-stack">
+    <table class="table table-borderless table table-striped table-hover table-responsive-stack">
         {% if object_list %}
         <thead class="text-center">
           <tr>
@@ -32,7 +32,7 @@
         <tbody class="text-center">
           {% for player in player_list %}
             <tr>
-              {% if forloop.counter == 1 %}
+              {% if forloop.counter == 1 and page_obj.number == 1 %}
               <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
               {% else %}
               <td>{{ forloop.counter }}</td>
@@ -55,7 +55,7 @@
               {% if user.is_superuser %}
                 <td class="text-center">
                     <a href="{% url 'dashboard' player.id %}"
-                        ><i class="fas fa-edit" style="color: #ffffff;"></i
+                        ><i class="fas fa-edit" style="color: #000000;"></i
                     ></a>
                 </td>
               {% endif %}

@@ -20,19 +20,19 @@ def upload_file_view(request):
                 else:
                     for row in reader:
                         single, _ = Player.objects.get_or_create(
-                            name=row[1],
-                            event01=row[2],
-                            event02=row[3],
-                            event03=row[4],
-                            event04=row[5],
-                            event05=row[6],
-                            event06=row[7],
-                            event07=row[8],
-                            event08=row[9],
-                            event09=row[10],
-                            event10=row[11],
-                            event11=row[12],
-                            event12=row[13],
+                            name=row[0],
+                            event01=row[1],
+                            event02=row[2],
+                            event03=row[3],
+                            event04=row[4],
+                            event05=row[5],
+                            event06=row[6],
+                            event07=row[7],
+                            event08=row[8],
+                            event09=row[9],
+                            event10=row[10],
+                            event11=row[11],
+                            event12=row[12],
                         )
             obj.activated = True
             obj.save()

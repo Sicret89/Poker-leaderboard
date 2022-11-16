@@ -6,7 +6,7 @@
     <h3>Update Player Data</h3>
 </div>
 
-<div class="card m-5" style="background-color: #202020; color: white;">
+<div class="card m-5" style="background-color: white; color: black;">
     <div class="card-body mx-3">
         <h5>{{ player.name }}</h5>
         <form method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
@@ -16,7 +16,7 @@
             {% csrf_token %}
 
             <div class="mt-3">
-                <button type="submit" class="btn btn-outline-light">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>
