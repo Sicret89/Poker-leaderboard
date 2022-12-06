@@ -15,8 +15,8 @@
           </tr>
         </thead>
         <tbody class="text-center">
-          {% if player == S1E1 %}
-              {% for player in player_list %}
+          {% if request.get_full_path == "/single_event_list1/" %}
+              {% for player in player_list|dictsortreversed:"S1E1" %}
                 <tr>
                   {% if forloop.counter == 1 and page_obj.number == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -28,8 +28,8 @@
                   <td>{{ player.S1E1 }}</td>
                 </tr>
               {% endfor %}
-          {% elif player == S1E2 %}
-              {% for player in player_list %}
+          {% elif request.get_full_path == "/single_event_list2/" %}
+              {% for player in player_list|dictsortreversed:"S1E2" %}
                 <tr>
                   {% if forloop.counter == 1 and page_obj.number == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -39,6 +39,136 @@
                   <td>{{ player.name }}</td>
                   <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
                   <td>{{ player.S1E2 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list3/" %}
+              {% for player in player_list|dictsortreversed:"S1E3" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E3 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list4/" %}
+              {% for player in player_list|dictsortreversed:"S1E4" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E4 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list5/" %}
+              {% for player in player_list|dictsortreversed:"S1E5" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E5 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list6/" %}
+              {% for player in player_list|dictsortreversed:"S1E6" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E6 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list7/" %}
+              {% for player in player_list|dictsortreversed:"S1E7" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E7 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list8/" %}
+              {% for player in player_list|dictsortreversed:"S1E8" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E8 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list9/" %}
+              {% for player in player_list|dictsortreversed:"S1E9" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E9 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list10/" %}
+              {% for player in player_list|dictsortreversed:"S1E10" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E10 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list11/" %}
+              {% for player in player_list|dictsortreversed:"S1E11" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E11 }}</td>
+                </tr>
+              {% endfor %}
+          {% elif request.get_full_path == "/single_event_list12/" %}
+              {% for player in player_list|dictsortreversed:"S1E12" %}
+                <tr>
+                  {% if forloop.counter == 1 and page_obj.number == 1 %}
+                  <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+                  {% else %}
+                  <td>{{ forloop.counter }}</td>
+                  {% endif %}
+                  <td>{{ player.name }}</td>
+                  <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+                  <td>{{ player.S1E12 }}</td>
                 </tr>
               {% endfor %}
           {% endif %}

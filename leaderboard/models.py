@@ -36,6 +36,9 @@ class Player(models.Model):
 
     def __str__(self):
         return self.name
+    #
+    # class Meta:
+    #     ordering = ['S1E1', 'S1E2', 'S1E3']
 
 
 # Note: this is really a "user", but since Django already provides a User
