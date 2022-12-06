@@ -23,17 +23,6 @@
             <th scope="col"><a class="title-link" href="{% url 'season10' %}">S1E10</a>
             <th scope="col"><a class="title-link" href="{% url 'season11' %}">S1E11</a>
             <th scope="col"><a class="title-link" href="{% url 'season12' %}">S1E12</a>
-<!--            <th scope="col">S1E2</th>-->
-<!--            <th scope="col">S1E3</th>-->
-<!--            <th scope="col">S1E4</th>-->
-<!--            <th scope="col">S1E5</th>-->
-<!--            <th scope="col">S1E6</th>-->
-<!--            <th scope="col">S1E7</th>-->
-<!--            <th scope="col">S1E8</th>-->
-<!--            <th scope="col">S1E9</th>-->
-<!--            <th scope="col">S1E10</th>-->
-<!--            <th scope="col">S1E11</th>-->
-<!--            <th scope="col">S1E12</th>-->
             <th scope="col">Total</th>
             {% if user.is_superuser %}
             <th>Actions</th>
@@ -44,7 +33,9 @@
           {% for player in player_list %}
             <tr>
               {% if forloop.counter == 1 and page_obj.number == 1 %}
-              <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+              <td class="text-success"><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+              {% elif forloop.counter < 10 and page_obj.number == 1 %}
+              <td class="text-success">{{ forloop.counter }}</td>
               {% else %}
               <td>{{ forloop.counter }}</td>
               {% endif %}
