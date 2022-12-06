@@ -26,17 +26,3 @@ class DashboardView(SuccessMessageMixin, generic.UpdateView):
 class Season(generic.ListView):
     model = Player
     template_name = 'leaderboard/single_event_list.html'
-    # paginate_by = 15
-    # ordering = ['-S1E2']
-    # queryset = Player.objects.order_by('-total')
-
-    # def get_queryset(self):
-    #     return Player.objects.filter(
-    #         set_name=self.request.GET.get('q')
-    #     )
-    #
-    # def dispatch(self, *args, **kwargs):
-    #     try:
-    #         return super().dispatch(*args, **kwargs)
-    #     except Http404:
-    #         return redirect('core:dashboard')
