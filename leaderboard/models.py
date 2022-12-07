@@ -13,32 +13,29 @@ from django.dispatch import receiver
 class Player(models.Model):
     name = models.CharField(max_length=256)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    S1E1 = models.IntegerField(default=0)
-    S1E2 = models.IntegerField(default=0)
-    S1E3 = models.IntegerField(default=0)
-    S1E4 = models.IntegerField(default=0)
-    S1E5 = models.IntegerField(default=0)
-    S1E6 = models.IntegerField(default=0)
-    S1E7 = models.IntegerField(default=0)
-    S1E8 = models.IntegerField(default=0)
-    S1E9 = models.IntegerField(default=0)
-    S1E10 = models.IntegerField(default=0)
-    S1E11 = models.IntegerField(default=0)
-    S1E12 = models.IntegerField(default=0)
+    E1 = models.IntegerField(default=0)
+    E2 = models.IntegerField(default=0)
+    E3 = models.IntegerField(default=0)
+    E4 = models.IntegerField(default=0)
+    E5 = models.IntegerField(default=0)
+    E6 = models.IntegerField(default=0)
+    E7 = models.IntegerField(default=0)
+    E8 = models.IntegerField(default=0)
+    E9 = models.IntegerField(default=0)
+    E10 = models.IntegerField(default=0)
+    E11 = models.IntegerField(default=0)
+    E12 = models.IntegerField(default=0)
     _total = None
 
     objects = PlayerManager(
-        total=F('S1E1') + F('S1E2') + F('S1E3') +
-        F('S1E4') + F('S1E5') + F('S1E6') +
-        F('S1E7') + F('S1E8') + F('S1E9') +
-        F('S1E10') + F('S1E11') + F('S1E12'),
+        total=F('E1') + F('E2') + F('E3') +
+        F('E4') + F('E5') + F('E6') +
+        F('E7') + F('E8') + F('E9') +
+        F('E10') + F('E11') + F('E12'),
     )
 
     def __str__(self):
         return self.name
-    #
-    # class Meta:
-    #     ordering = ['S1E1', 'S1E2', 'S1E3']
 
 
 # Note: this is really a "user", but since Django already provides a User

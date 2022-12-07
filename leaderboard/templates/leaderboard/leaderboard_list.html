@@ -11,18 +11,18 @@
             <th scope="col">Pos</th>
             <th scope="col">Name</th>
             <th scope="col">Photo</th>
-            <th scope="col"><a class="title-link" href="{% url 'season1' %}">S1E1</a>
-            <th scope="col"><a class="title-link" href="{% url 'season2' %}">S1E2</a>
-            <th scope="col"><a class="title-link" href="{% url 'season3' %}">S1E3</a>
-            <th scope="col"><a class="title-link" href="{% url 'season4' %}">S1E4</a>
-            <th scope="col"><a class="title-link" href="{% url 'season5' %}">S1E5</a>
-            <th scope="col"><a class="title-link" href="{% url 'season6' %}">S1E6</a>
-            <th scope="col"><a class="title-link" href="{% url 'season7' %}">S1E7</a>
-            <th scope="col"><a class="title-link" href="{% url 'season8' %}">S1E8</a>
-            <th scope="col"><a class="title-link" href="{% url 'season9' %}">S1E9</a>
-            <th scope="col"><a class="title-link" href="{% url 'season10' %}">S1E10</a>
-            <th scope="col"><a class="title-link" href="{% url 'season11' %}">S1E11</a>
-            <th scope="col"><a class="title-link" href="{% url 'season12' %}">S1E12</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode1' %}">E1</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode2' %}">E2</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode3' %}">E3</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode4' %}">E4</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode5' %}">E5</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode6' %}">E6</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode7' %}">E7</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode8' %}">E8</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode9' %}">E9</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode10' %}">E10</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode11' %}">E11</a>
+            <th scope="col"><a class="title-link" href="{% url 'episode12' %}">E12</a>
             <th scope="col">Total</th>
             {% if user.is_superuser %}
             <th>Actions</th>
@@ -41,18 +41,18 @@
               {% endif %}
               <td>{{ player.name }}</td>
               <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
-              <td>{{ player.S1E1 }}</td>
-              <td>{{ player.S1E2 }}</td>
-              <td>{{ player.S1E3 }}</td>
-              <td>{{ player.S1E4 }}</td>
-              <td>{{ player.S1E5 }}</td>
-              <td>{{ player.S1E6 }}</td>
-              <td>{{ player.S1E7 }}</td>
-              <td>{{ player.S1E8 }}</td>
-              <td>{{ player.S1E9 }}</td>
-              <td>{{ player.S1E10 }}</td>
-              <td>{{ player.S1E11 }}</td>
-              <td>{{ player.S1E12 }}</td>
+              <td>{{ player.E1 }}</td>
+              <td>{{ player.E2 }}</td>
+              <td>{{ player.E3 }}</td>
+              <td>{{ player.E4 }}</td>
+              <td>{{ player.E5 }}</td>
+              <td>{{ player.E6 }}</td>
+              <td>{{ player.E7 }}</td>
+              <td>{{ player.E8 }}</td>
+              <td>{{ player.E9 }}</td>
+              <td>{{ player.E10 }}</td>
+              <td>{{ player.E11 }}</td>
+              <td>{{ player.E12 }}</td>
               <td>{{ player.total }}</td>
               {% if user.is_superuser %}
                 <td class="text-center">
