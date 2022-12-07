@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-<div class="table-responsive-sm table-bordered">
+<div style="background-color: #f3f3f3;" class="table-responsive-sm table-bordered">
     <table class="table table-borderless table table-striped table-hover table-responsive-stack">
         {% if object_list %}
         <thead class="text-center">
@@ -11,18 +11,18 @@
             <th scope="col">Pos</th>
             <th scope="col">Name</th>
             <th scope="col">Photo</th>
-            <th scope="col"><a class="title-link" href="{% url 'episode1' %}">E1</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode2' %}">E2</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode3' %}">E3</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode4' %}">E4</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode5' %}">E5</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode6' %}">E6</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode7' %}">E7</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode8' %}">E8</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode9' %}">E9</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode10' %}">E10</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode11' %}">E11</a>
-            <th scope="col"><a class="title-link" href="{% url 'episode12' %}">E12</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode1' %}">E1</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode2' %}">E2</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode3' %}">E3</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode4' %}">E4</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode5' %}">E5</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode6' %}">E6</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode7' %}">E7</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode8' %}">E8</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode9' %}">E9</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode10' %}">E10</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode11' %}">E11</a>
+            <th scope="col"><a class="episode-link" href="{% url 'episode12' %}">E12</a>
             <th scope="col">Total</th>
             {% if user.is_superuser %}
             <th>Actions</th>
@@ -33,11 +33,11 @@
           {% for player in player_list %}
             <tr>
               {% if forloop.counter == 1 and page_obj.number == 1 %}
-              <td class="text-success"><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
+              <th class="text-success"><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</th>
               {% elif forloop.counter < 10 and page_obj.number == 1 %}
-              <td class="text-success">{{ forloop.counter }}</td>
+              <th class="text-success">{{ forloop.counter }}</th>
               {% else %}
-              <td>{{ forloop.counter }}</td>
+              <td class="text-danger">{{ forloop.counter }}</td>
               {% endif %}
               <td>{{ player.name }}</td>
               <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
