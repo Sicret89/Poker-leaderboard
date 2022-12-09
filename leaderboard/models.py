@@ -10,6 +10,13 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+class Prize(models.Model):
+    total_prize = models.IntegerField(default=0, unique=True)
+
+    def __str__(self):
+        return str(self.total_prize)
+
+
 class Player(models.Model):
     name = models.CharField(max_length=256)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')

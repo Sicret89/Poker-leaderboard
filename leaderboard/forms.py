@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.widgets import HiddenInput
-from .models import Player
+from .models import Player, Prize
 
 
 class PlayerUpdateForm(forms.ModelForm):
@@ -34,4 +34,15 @@ class PlayerUpdateForm(forms.ModelForm):
         self.fields['E11'].widget.attrs.update(
             {'class': 'form-control', 'style': ' background-color: #FFFFFF; color: #000000;'})
         self.fields['E12'].widget.attrs.update(
+            {'class': 'form-control', 'style': ' background-color: #FFFFFF; color: #000000;'})
+
+
+class PrizeUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Prize
+        fields = ('total_prize',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['total_prize'].widget.attrs.update(
             {'class': 'form-control', 'style': ' background-color: #FFFFFF; color: #000000;'})

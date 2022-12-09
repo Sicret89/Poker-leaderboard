@@ -1,0 +1,25 @@
+{%extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="m-2" style="color: white;">
+    <h3>Update Masters Pot</h3>
+</div>
+
+<div class="card m-5" style="background-color: #f3f3f3; color: #000000;">
+    <div class="card-body mx-3">
+        <h5>{{ prize.total_prize }}</h5>
+        <form method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
+
+            {{ form.as_p }}
+
+            {% csrf_token %}
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

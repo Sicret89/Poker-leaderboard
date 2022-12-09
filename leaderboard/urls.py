@@ -1,11 +1,12 @@
 from django.urls import path
 
 from . import views
-from .views import Index, DashboardView, Season
+from .views import Index, DashboardView, PrizeUpdateView, Season
 
 urlpatterns = [
     path("", Index.as_view(), name="leaderboard_list"),
     path('player/<int:pk>/', DashboardView.as_view(), name='dashboard'),
+    path('prize/<int:pk>/', PrizeUpdateView.as_view(), name='total_prize'),
     path("E1/", Season.as_view(), name="episode1"),
     path("E2/", Season.as_view(), name="episode2"),
     path("E3/", Season.as_view(), name="episode3"),

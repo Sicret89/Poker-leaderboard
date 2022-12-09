@@ -4,7 +4,7 @@
 {% block content %}
 
 <div style="background-color: #f3f3f3;" class="table-responsive-sm table-bordered">
-    <table class="table table-borderless table table-striped table-hover table-responsive-stack">
+    <table class="table table-borderless table-striped table-hover table-responsive-stack">
         {% if object_list %}
         <thead class="text-center">
           <tr>
@@ -40,7 +40,7 @@
               <td class="text-danger">{{ forloop.counter }}</td>
               {% endif %}
               <td>{{ player.name }}</td>
-              <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 35px; width: 35px;" /></a></td>
+              <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 40px; width: 40px;" /></a></td>
               <td>{{ player.E1 }}</td>
               <td>{{ player.E2 }}</td>
               <td>{{ player.E3 }}</td>

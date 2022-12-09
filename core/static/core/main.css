@@ -82,6 +82,12 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
+
   .episode-link {
   color: #478675 !important;
+  }
+
+  .card-body {
+  border-radius: 10px;
+  width: 50%;
   }
