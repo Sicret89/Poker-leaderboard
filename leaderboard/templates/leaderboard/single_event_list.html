@@ -17,6 +17,7 @@
         <tbody class="text-center">
           {% if request.get_full_path == "/E1/" %}
               {% for player in player_list|dictsortreversed:"E1" %}
+              {% if player.E1 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -28,9 +29,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E1 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E2/" %}
               {% for player in player_list|dictsortreversed:"E2" %}
+              {% if player.E2 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -42,9 +45,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E2 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E3/" %}
               {% for player in player_list|dictsortreversed:"E3" %}
+              {% if player.E3 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -56,9 +61,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E3 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E4/" %}
               {% for player in player_list|dictsortreversed:"E4" %}
+              {% if player.E4 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -70,9 +77,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E4 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E5/" %}
               {% for player in player_list|dictsortreversed:"E5" %}
+              {% if player.E5 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -84,9 +93,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E5 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E6/" %}
               {% for player in player_list|dictsortreversed:"E6" %}
+              {% if player.E6 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -98,9 +109,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E6 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E7/" %}
               {% for player in player_list|dictsortreversed:"E7" %}
+              {% if player.E7 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -112,9 +125,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E7 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E8/" %}
               {% for player in player_list|dictsortreversed:"E8" %}
+              {% if player.E8 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -125,9 +140,11 @@
                   <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 40px; width: 40px;" /></a></td>
                   <td>{{ player.E8 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E9/" %}
               {% for player in player_list|dictsortreversed:"E9" %}
+              {% if player.E9 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -139,9 +156,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E9 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E10/" %}
               {% for player in player_list|dictsortreversed:"E10" %}
+              {% if player.E10 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -153,9 +172,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E10 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E11/" %}
               {% for player in player_list|dictsortreversed:"E11" %}
+              {% if player.E11 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -167,9 +188,11 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E11 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% elif request.get_full_path == "/E12/" %}
               {% for player in player_list|dictsortreversed:"E12" %}
+              {% if player.E12 > 0 %}
                 <tr>
                   {% if forloop.counter == 1 %}
                   <td><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</td>
@@ -181,6 +204,7 @@
                            style="height: 40px; width: 40px;"/></a></td>
                   <td>{{ player.E12 }}</td>
                 </tr>
+              {% endif %}
               {% endfor %}
           {% endif %}
         </tbody>
