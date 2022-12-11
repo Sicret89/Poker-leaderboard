@@ -41,18 +41,66 @@
               {% endif %}
               <td>{{ player.name }}</td>
               <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 40px; width: 40px;" /></a></td>
+              {% if player.E1 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E1 }}</td>
+              {% endif %}
+              {% if player.E2 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E2 }}</td>
+              {% endif %}
+              {% if player.E3 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E3 }}</td>
+              {% endif %}
+              {% if player.E4 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E4 }}</td>
+              {% endif %}
+              {% if player.E5 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E5 }}</td>
+              {% endif %}
+              {% if player.E6 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E6 }}</td>
+              {% endif %}
+              {% if player.E7 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E7 }}</td>
+              {% endif %}
+              {% if player.E8 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E8 }}</td>
+              {% endif %}
+              {% if player.E9 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E9 }}</td>
+              {% endif %}
+              {% if player.E10 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E10 }}</td>
+              {% endif %}
+              {% if player.E11 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E11 }}</td>
+              {% endif %}
+              {% if player.E12 == 0 %}
+              <td>-</td>
+              {% else %}
               <td>{{ player.E12 }}</td>
+              {% endif %}
               <td>{{ player.total }}</td>
               {% if user.is_superuser %}
                 <td class="text-center">
