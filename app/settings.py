@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 import django_heroku
 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #
 # SECRET_KEY = '1x9go=w#3a=%b(5lvpvncta3s=c!i0)_=knu4wf=f20%d=(lq#'
 #
@@ -11,7 +11,7 @@ import django_heroku
 # ALLOWED_HOSTS = []
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
