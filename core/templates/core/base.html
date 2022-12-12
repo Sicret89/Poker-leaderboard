@@ -49,7 +49,7 @@
                 <ul class="list-group">
                   {% for prize in prize_list %}
                     <tr>
-                      <h3 style="color: #1f9d54">Masters Pot: {{ prize.total_prize }}zł</h3>
+                      <h3 style="color: #1f9d54">Masters Pot: {{ prize.total_prize }}</h3>
                       {% if user.is_superuser %}
                         <th class="text-center">
                             <a href="{% url 'total_prize' prize.id %}"
