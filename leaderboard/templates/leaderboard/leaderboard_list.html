@@ -33,7 +33,9 @@
           {% for player in player_list %}
             <tr>
               {% if forloop.counter == 1 and page_obj.number == 1 %}
-              <th class="text-success"><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</th>
+              <th class="text-warning"><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</th>
+              {% elif forloop.counter < 4 and page_obj.number == 1 %}
+              <th class="text-warning">{{ forloop.counter }}</th>
               {% elif forloop.counter < 10 and page_obj.number == 1 %}
               <th class="text-success">{{ forloop.counter }}</th>
               {% else %}
