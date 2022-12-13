@@ -20,7 +20,6 @@ def upload_file_view(request):
                     pass
                 else:
                     for row1 in reader:
-                        # row1 = split(row[0], ';')
                         single, _ = Player.objects.get_or_create(
                             name=row1[1],
                             E1=row1[2] if row1[2] else 0,
@@ -39,23 +38,3 @@ def upload_file_view(request):
             obj.activated = True
             obj.save()
     return render(request, 'leaderboard/upload.html', {'form': form})
-
-
-def split2(sequence, sep):
-    chunk = []
-    for val in sequence:
-        if val == sep:
-            yield chunk
-            chunk = []
-        else:
-            chunk.append(val)
-    yield chunk
-
-
-def split(txt, seps):
-    default_sep = seps[0]
-
-    # we skip seps[0] because that's the default separator
-    for sep in seps[1:]:
-        txt = txt.replace(sep, default_sep)
-    return [i.strip() for i in txt.split(default_sep)]
