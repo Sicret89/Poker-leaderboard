@@ -36,7 +36,6 @@ def upload_file_view(request):
                             E11=row1[12] if row1[12] else 0,
                             E12=row1[13] if row1[13] else 0,
                         )
-                        print(row1)
             obj.activated = True
             obj.save()
     return render(request, 'leaderboard/upload.html', {'form': form})
