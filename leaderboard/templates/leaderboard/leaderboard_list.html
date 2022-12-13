@@ -33,13 +33,13 @@
           {% for player in player_list %}
             <tr>
               {% if forloop.counter == 1 and page_obj.number == 1 %}
-              <th class="text-warning"><i class="fas fa-trophy" style="color: gold;"></i> {{ forloop.counter }}</th>
+              <th class="text-warning"><i class="fas fa-trophy" style="color: gold;"></i>{{ page_obj.start_index|add:forloop.counter0 }}</th>
               {% elif forloop.counter < 4 and page_obj.number == 1 %}
-              <th class="text-warning">{{ forloop.counter }}</th>
+              <th class="text-warning">{{ page_obj.start_index|add:forloop.counter0 }}</th>
               {% elif forloop.counter < 10 and page_obj.number == 1 %}
-              <th class="text-success">{{ forloop.counter }}</th>
+              <th class="text-success">{{ page_obj.start_index|add:forloop.counter0 }}</th>
               {% else %}
-              <td class="text-danger">{{ forloop.counter }}</td>
+              <td class="text-danger">{{ page_obj.start_index|add:forloop.counter0 }}</td>
               {% endif %}
               <td>{{ player.name }}</td>
               <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 40px; width: 40px;" /></a></td>
