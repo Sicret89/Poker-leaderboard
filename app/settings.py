@@ -4,8 +4,6 @@ import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = str(os.environ.get('DEBUG')) == '0' # 1 == True
