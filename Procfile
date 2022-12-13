@@ -1,1 +1,1 @@
-web: gunicorn poker-leaderboard.wsgi
+web: gunicorn app.wsgi
