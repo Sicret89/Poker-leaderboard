@@ -9,10 +9,9 @@ from django.urls import reverse_lazy
 class Index(generic.ListView):
     template_name = 'leaderboard/leaderboard_list.html'
     paginate_by = 15
-    ordering = ['-total']
 
     def get_queryset(self):
-        return Player.objects.all()
+        return Player.objects.order_by('-total')
 
     def get_context_data(self, **kwargs):
         context = super(Index, self).get_context_data(**kwargs)
