@@ -1,1 +1,1 @@
-web: gunicorn poker-leaderboard.wsgi --log-file -
+web: gunicorn poker-leaderboard.wsgi
