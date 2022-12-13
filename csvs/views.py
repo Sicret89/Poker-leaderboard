@@ -12,7 +12,7 @@ def upload_file_view(request):
         form.save()
         form = CsvModelForm()
         obj = Csv.objects.get(activated=False)
-        with open(obj.file_name.path, 'r', encoding='cp1252') as f:
+        with open(obj.file_name.path, 'r', encoding='utf-8-sig') as f:
             reader = csv.reader(f, delimiter=";")
             Player.objects.all().delete()
             for i, row1 in enumerate(reader):
