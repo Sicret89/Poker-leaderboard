@@ -21,7 +21,7 @@ def upload_file_view(request):
                     name=row1[1],
                     defaults={
                         **{season: row1[2] if row1[2] else 0, },
-                        **{bonus: row1[3] + row1[4] if row1[4] or row1[4] else 0, },
+                        **{bonus: row1[3] + row1[4] if row1[3] or row1[4] else 0, },
                         },
                 )
             obj.activated = True
