@@ -8,7 +8,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = str(os.environ.get('DEBUG')) == '0' # 1 == True
 
-ALLOWED_HOSTS = ['akvs47.herokuapp.com']
+ALLOWED_HOSTS = ['akvs47.herokuapp.com', 'akvs47.club']
 if not DEBUG:
     ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOSTS')]
 
