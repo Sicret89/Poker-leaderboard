@@ -16,13 +16,15 @@ def upload_file_view(request):
             reader = csv.reader(f, delimiter=";")
             for row1 in reader:
                 season = row1[0]
-                bonus = season + 'B'
+                bonus_ak = season + 'B_AK'
+                bonus_47 = season + 'B_47'
                 single, _ = Player.objects.update_or_create(
                     name=row1[1],
                     defaults={
                         **{season: row1[2] if row1[2] else 0, },
-                        **{bonus: row1[3] + row1[4] if row1[3] or row1[4] else 0, },
-                        },
+                        **{bonus_ak: row1[3] if row1[3] else 0, },
+                        **{bonus_47: row1[4] if row1[4] else 0, },
+                    },
                 )
             obj.activated = True
             obj.save()
