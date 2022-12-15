@@ -45,65 +45,97 @@
               <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 40px; width: 40px;" /></a></td>
               {% if player.total_e1 == 0 %}
               <td>-</td>
+              {% elif player.E1_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e1_jocker }}</td>
               {% else %}
               <td>{{ player.total_e1 }}</td>
               {% endif %}
               {% if player.total_e2 == 0 %}
               <td>-</td>
+              {% elif player.E2_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e2_jocker }}</td>
               {% else %}
               <td>{{ player.total_e2 }}</td>
               {% endif %}
               {% if player.total_e3 == 0 %}
               <td>-</td>
+              {% elif player.E3_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e3_jocker }}</td>
               {% else %}
               <td>{{ player.total_e3 }}</td>
               {% endif %}
               {% if player.total_e4 == 0 %}
               <td>-</td>
+              {% elif player.E4_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e4_jocker }}</td>
               {% else %}
               <td>{{ player.total_e4 }}</td>
               {% endif %}
               {% if player.total_e5 == 0 %}
               <td>-</td>
+              {% elif player.E5_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e5_jocker }}</td>
               {% else %}
               <td>{{ player.total_e5 }}</td>
               {% endif %}
               {% if player.total_e6 == 0 %}
               <td>-</td>
+              {% elif player.E6_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e6_jocker }}</td>
               {% else %}
               <td>{{ player.total_e6 }}</td>
               {% endif %}
               {% if player.total_e7 == 0 %}
               <td>-</td>
+              {% elif player.E7_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e7_jocker }}</td>
               {% else %}
               <td>{{ player.total_e7 }}</td>
               {% endif %}
               {% if player.total_e8 == 0 %}
               <td>-</td>
+              {% elif player.E8_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e8_jocker }}</td>
               {% else %}
               <td>{{ player.total_e8 }}</td>
               {% endif %}
               {% if player.total_e9 == 0 %}
               <td>-</td>
+              {% elif player.E9_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e9_jocker }}</td>
               {% else %}
               <td>{{ player.total_e9 }}</td>
               {% endif %}
               {% if player.total_e10 == 0 %}
               <td>-</td>
+              {% elif player.E10_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e10_jocker }}</td>
               {% else %}
               <td>{{ player.total_e10 }}</td>
               {% endif %}
               {% if player.total_e11 == 0 %}
               <td>-</td>
+              {% elif player.E11_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e11_jocker }}</td>
               {% else %}
               <td>{{ player.total_e11 }}</td>
               {% endif %}
               {% if player.total_e12 == 0 %}
               <td>-</td>
+              {% elif player.E12_JOCKER == 0 %}
+              <td class="table-warning">{{ player.total_e12_jocker }}</td>
               {% else %}
               <td>{{ player.total_e12 }}</td>
               {% endif %}
-              <td>{{ player.total }}</td>
+              {% if player.E1_JOCKER == 0 %}
+              <th>{{ player.total_jocker_e1 }}</th>
+              {% elif player.E2_JOCKER == 0 %}
+              <th>{{ player.total_jocker_e2 }}</th>
+              {% elif player.E3_JOCKER == 0 %}
+              <th>{{ player.total_jocker_e3 }}</th>
+              {% else %}
+              <th>{{ player.total }}</th>
+              {% endif %}
               {% if user.is_superuser %}
                 <td class="text-center">
                     <a href="{% url 'dashboard' player.id %}"
