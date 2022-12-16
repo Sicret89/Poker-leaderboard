@@ -28,9 +28,6 @@ def upload_file_view(request):
                         **{jocker: row1[6] if row1[6] else None, },
                     },
                 )
-                print('-----------------------------------------------------')
-                print(row1)
-                print('-----------------------------------------------------')
             obj.activated = True
             obj.save()
     return render(request, 'leaderboard/upload.html', {'form': form})
