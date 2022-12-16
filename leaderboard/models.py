@@ -170,31 +170,79 @@ class Player(models.Model):
             'E8B_AK') +
                          F('E8B_47') + F('E9') + F('E9B_AK') + F('E9B_47') + F('E10') + F('E10B_AK') + F('E10B_47') +
                          F('E11') + F('E11B_AK') + F('E11B_47') + (F('E12') + F('E12B_AK') + F('E12B_47')) * 2,
-        total_e1=F('E1') + F('E1B_AK') + F('E1B_47'),
-        total_e1_jocker=(F('E1') + F('E1B_AK') + F('E1B_47')) * 2,
-        total_e2=F('E2') + F('E2B_AK') + F('E2B_47'),
-        total_e2_jocker=(F('E2') + F('E2B_AK') + F('E2B_47')) * 2,
-        total_e3=F('E3') + F('E3B_AK') + F('E3B_47'),
-        total_e3_jocker=(F('E3') + F('E3B_AK') + F('E3B_47')) * 2,
-        total_e4=F('E4') + F('E4B_AK') + F('E4B_47'),
-        total_e4_jocker=(F('E4') + F('E4B_AK') + F('E4B_47')) * 2,
-        total_e5=F('E5') + F('E5B_AK') + F('E5B_47'),
-        total_e5_jocker=(F('E5') + F('E5B_AK') + F('E5B_47')) * 2,
-        total_e6=F('E6') + F('E6B_AK') + F('E6B_47'),
-        total_e6_jocker=(F('E6') + F('E6B_AK') + F('E6B_47')) * 2,
-        total_e7=F('E7') + F('E7B_AK') + F('E7B_47'),
-        total_e7_jocker=(F('E7') + F('E7B_AK') + F('E7B_47')) * 2,
-        total_e8=F('E8') + F('E8B_AK') + F('E8B_47'),
-        total_e8_jocker=(F('E8') + F('E8B_AK') + F('E8B_47')) * 2,
-        total_e9=F('E9') + F('E9B_AK') + F('E9B_47'),
-        total_e9_jocker=(F('E9') + F('E9B_AK') + F('E9B_47')) * 2,
-        total_e10=F('E10') + F('E10B_AK') + F('E10B_47'),
-        total_e10_jocker=(F('E10') + F('E10B_AK') + F('E10B_47')) * 2,
-        total_e11=F('E11') + F('E11B_AK') + F('E11B_47'),
-        total_e11_jocker=(F('E11') + F('E11B_AK') + F('E11B_47')) * 2,
-        total_e12=F('E12') + F('E12B_AK') + F('E12B_47'),
-        total_e12_jocker=(F('E12') + F('E12B_AK') + F('E12B_47')) * 2,
     )
+
+    @property
+    def total_e1(self):
+        if self.E1_JOCKER:
+            return (self.E1 + self.E1B_47 + self.E1B_AK) * 2
+        return self.E1 + self.E1B_47 + self.E1B_AK
+
+    @property
+    def total_e2(self):
+        if self.E2_JOCKER:
+            return (self.E2 + self.E2B_47 + self.E2B_AK) * 2
+        return self.E2 + self.E2B_47 + self.E2B_AK
+
+    @property
+    def total_e3(self):
+        if self.E3_JOCKER:
+            return (self.E3 + self.E3B_47 + self.E3B_AK) * 2
+        return self.E3 + self.E3B_47 + self.E3B_AK
+
+    @property
+    def total_e4(self):
+        if self.E4_JOCKER:
+            return (self.E4 + self.E4B_47 + self.E4B_AK) * 2
+        return self.E4 + self.E4B_47 + self.E4B_AK
+
+    @property
+    def total_e5(self):
+        if self.E5_JOCKER:
+            return (self.E5 + self.E5B_47 + self.E5B_AK) * 2
+        return self.E5 + self.E5B_47 + self.E5B_AK
+
+    @property
+    def total_e6(self):
+        if self.E6_JOCKER:
+            return (self.E6 + self.E6B_47 + self.E6B_AK) * 2
+        return self.E6 + self.E6B_47 + self.E6B_AK
+
+    @property
+    def total_e7(self):
+        if self.E7_JOCKER:
+            return (self.E7 + self.E7B_47 + self.E7B_AK) * 2
+        return self.E7 + self.E7B_47 + self.E7B_AK
+
+    @property
+    def total_e8(self):
+        if self.E8_JOCKER:
+            return (self.E8 + self.E8B_47 + self.E8B_AK) * 2
+        return self.E8 + self.E8B_47 + self.E8B_AK
+
+    @property
+    def total_e9(self):
+        if self.E9_JOCKER:
+            return (self.E9 + self.E9B_47 + self.E9B_AK) * 2
+        return self.E9 + self.E9B_47 + self.E9B_AK
+
+    @property
+    def total_e10(self):
+        if self.E10_JOCKER:
+            return (self.E10 + self.E10B_47 + self.E10B_AK) * 2
+        return self.E10 + self.E10B_47 + self.E10B_AK
+
+    @property
+    def total_e11(self):
+        if self.E11_JOCKER:
+            return (self.E11 + self.E11B_47 + self.E11B_AK) * 2
+        return self.E11 + self.E11B_47 + self.E11B_AK
+
+    @property
+    def total_e12(self):
+        if self.E12_JOCKER:
+            return (self.E12 + self.E12B_47 + self.E12B_AK) * 2
+        return self.E12 + self.E12B_47 + self.E12B_AK
 
     def __str__(self):
         return self.name
