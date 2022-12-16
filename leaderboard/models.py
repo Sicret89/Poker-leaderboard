@@ -244,6 +244,11 @@ class Player(models.Model):
             return (self.E12 + self.E12B_47 + self.E12B_AK) * 2
         return self.E12 + self.E12B_47 + self.E12B_AK
 
+    @property
+    def total_score(self):
+        return (self.total_e1 + self.total_e2 + self.total_e3 + self.total_e4 + self.total_e5 + self.total_e6 +
+                self.total_e7 + self.total_e8 + self.total_e9 + self.total_e10 + self.total_e11 + self.total_e12)
+
     def __str__(self):
         return self.name
 
