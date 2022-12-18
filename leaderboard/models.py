@@ -21,6 +21,7 @@ class Prize(models.Model):
 class Player(models.Model):
     name = models.CharField(max_length=256)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    jocker_image = models.ImageField(default='jocker.jpg', upload_to='jocker_pics')
     E1 = models.IntegerField(default=0)
     E1B_AK = models.IntegerField(default=0)
     E1B_47 = models.IntegerField(default=0)
