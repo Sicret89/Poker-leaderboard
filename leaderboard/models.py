@@ -72,35 +72,42 @@ class Player(models.Model):
     _total = None
 
     objects = PlayerManager(
-        total=F('E1') + F('E1B_AK') + F('E1B_47') + F('E2') + F('E2B_AK') + F('E2B_47') + F('E3') +
-              F('E3B_AK') + F('E3B_47') + F('E4') + F('E4B_AK') + F('E4B_47') + F('E5') + F('E5B_AK') + F('E5B_47') +
-              F('E6') + F('E6B_AK') + F('E6B_47') + F('E7') + F('E7B_AK') + F('E7B_47') + F('E8') + F('E8B_AK') +
-              F('E8B_47') + F('E9') + F('E9B_AK') + F('E9B_47') + F('E10') + F('E10B_AK') + F('E10B_47') +
-              F('E11') + F('E11B_AK') + F('E11B_47') + F('E12') + F('E12B_AK') + F('E12B_47') +
+        total=F('E1') + F('E1B_AK') + F('E1B_47') +
+              F('E2') + F('E2B_AK') + F('E2B_47') +
+              F('E3') + F('E3B_AK') + F('E3B_47') +
+              F('E4') + F('E4B_AK') + F('E4B_47') +
+              F('E5') + F('E5B_AK') + F('E5B_47') +
+              F('E6') + F('E6B_AK') + F('E6B_47') +
+              F('E7') + F('E7B_AK') + F('E7B_47') +
+              F('E8') + F('E8B_AK') + F('E8B_47') +
+              F('E9') + F('E9B_AK') + F('E9B_47') +
+              F('E10') + F('E10B_AK') + F('E10B_47') +
+              F('E11') + F('E11B_AK') + F('E11B_47') +
+              F('E12') + F('E12B_AK') + F('E12B_47') +
               Case(
-                  When(E1_JOCKER=True, then=(F('E1') + F('E1B_AK') + F('E1B_47')) * 2
+                  When(E1_JOCKER=True, then=(F('E1') + F('E1B_AK') + F('E1B_47'))
                        ),
-                  When(E2_JOCKER=True, then=(F('E2') + F('E2B_AK') + F('E2B_47')) * 2
+                  When(E2_JOCKER=True, then=(F('E2') + F('E2B_AK') + F('E2B_47'))
                        ),
-                  When(E3_JOCKER=True, then=(F('E3') + F('E3B_AK') + F('E3B_47')) * 2
+                  When(E3_JOCKER=True, then=(F('E3') + F('E3B_AK') + F('E3B_47'))
                        ),
-                  When(E4_JOCKER=True, then=(F('E4') + F('E4B_AK') + F('E4B_47')) * 2
+                  When(E4_JOCKER=True, then=(F('E4') + F('E4B_AK') + F('E4B_47'))
                        ),
-                  When(E5_JOCKER=True, then=(F('E5') + F('E5B_AK') + F('E5B_47')) * 2
+                  When(E5_JOCKER=True, then=(F('E5') + F('E5B_AK') + F('E5B_47'))
                        ),
-                  When(E6_JOCKER=True, then=(F('E6') + F('E6B_AK') + F('E6B_47')) * 2
+                  When(E6_JOCKER=True, then=(F('E6') + F('E6B_AK') + F('E6B_47'))
                        ),
-                  When(E7_JOCKER=True, then=(F('E7') + F('E7B_AK') + F('E7B_47')) * 2
+                  When(E7_JOCKER=True, then=(F('E7') + F('E7B_AK') + F('E7B_47'))
                        ),
-                  When(E8_JOCKER=True, then=(F('E8') + F('E8B_AK') + F('E8B_47')) * 2
+                  When(E8_JOCKER=True, then=(F('E8') + F('E8B_AK') + F('E8B_47'))
                        ),
-                  When(E9_JOCKER=True, then=(F('E9') + F('E9B_AK') + F('E9B_47')) * 2
+                  When(E9_JOCKER=True, then=(F('E9') + F('E9B_AK') + F('E9B_47'))
                        ),
-                  When(E10_JOCKER=True, then=(F('E10') + F('E10B_AK') + F('E10B_47')) * 2
+                  When(E10_JOCKER=True, then=(F('E10') + F('E10B_AK') + F('E10B_47'))
                        ),
-                  When(E11_JOCKER=True, then=(F('E11') + F('E11B_AK') + F('E11B_47')) * 2
+                  When(E11_JOCKER=True, then=(F('E11') + F('E11B_AK') + F('E11B_47'))
                        ),
-                  When(E12_JOCKER=True, then=(F('E12') + F('E12B_AK') + F('E12B_47')) * 2
+                  When(E12_JOCKER=True, then=(F('E12') + F('E12B_AK') + F('E12B_47'))
                        ),
                   default=0,
                   output_field=IntegerField(),
