@@ -127,7 +127,7 @@
               {% else %}
               <td>{{ player.total_e12 }}</td>
               {% endif %}
-              <th>{{ player.total_score }}</th>
+              <th>{{ player.total }}</th>
               {% if user.is_superuser %}
                 <td class="text-center">
                     <a href="{% url 'dashboard' player.id %}"
