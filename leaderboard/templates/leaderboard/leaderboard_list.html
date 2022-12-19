@@ -42,88 +42,113 @@
               <td class="text-danger">{{ page_obj.start_index|add:forloop.counter0 }}</td>
               {% endif %}
               <td>{{ player.name }}</td>
-              <td><img class="rounded-circle player-img" src="{{ player.image.url }}" style="height: 40px; width: 40px;" /></a></td>
+              <td><img class="rounded-circle player-img" src="{{ player.image.url }}"
+                       style="height: 40px; width: 40px;" alt="Player image"/></td>
               {% if player.total_e1 == 0 %}
               <td>-</td>
               {% elif player.E1_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e1 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e1 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e1 }}</td>
               {% endif %}
               {% if player.total_e2 == 0 %}
               <td>-</td>
               {% elif player.E2_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e2 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e2 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e2 }}</td>
               {% endif %}
               {% if player.total_e3 == 0 %}
               <td>-</td>
               {% elif player.E3_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e3 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e3 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e3 }}</td>
               {% endif %}
               {% if player.total_e4 == 0 %}
               <td>-</td>
               {% elif player.E4_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e4 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e4 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e4 }}</td>
               {% endif %}
               {% if player.total_e5 == 0 %}
               <td>-</td>
               {% elif player.E5_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e5 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e5 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e5 }}</td>
               {% endif %}
               {% if player.total_e6 == 0 %}
               <td>-</td>
               {% elif player.E6_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e6 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e6 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e6 }}</td>
               {% endif %}
               {% if player.total_e7 == 0 %}
               <td>-</td>
               {% elif player.E7_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e6 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e6 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e7 }}</td>
               {% endif %}
               {% if player.total_e8 == 0 %}
               <td>-</td>
               {% elif player.E8_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e8 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e8 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e8 }}</td>
               {% endif %}
               {% if player.total_e9 == 0 %}
               <td>-</td>
               {% elif player.E9_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e9 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e9 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e9 }}</td>
               {% endif %}
               {% if player.total_e10 == 0 %}
               <td>-</td>
               {% elif player.E10_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e10 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e10 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e10 }}</td>
               {% endif %}
               {% if player.total_e11 == 0 %}
               <td>-</td>
               {% elif player.E11_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e11 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e11 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e11 }}</td>
               {% endif %}
               {% if player.total_e12 == 0 %}
               <td>-</td>
               {% elif player.E12_JOCKER %}
-              <td class="table-warning"><div>{{ player.total_e12 }}</div><img class="rounded-circle player-img" src="{{ player.jocker_image.url }}" style="height: 30px; width: 30px;" /></td>
+              <td class="table-warning"><div>{{ player.total_e12 }}</div><img
+                      class="rounded-circle player-img" src="{{ player.jocker_image.url }}"
+                      style="height: 30px; width: 30px;" alt="Jocker image"/></td>
               {% else %}
               <td>{{ player.total_e12 }}</td>
               {% endif %}
