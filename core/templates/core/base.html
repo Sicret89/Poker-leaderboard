@@ -45,7 +45,7 @@
         </nav>
     </header>
     <main role="main" class="container">
-        <div class="col-md-4">
+        <div class="col-sm">
             <div>
                 <ul class="list-group">
                   {% for prize in prize_list %}
@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="row">
-          <div class="col-md-10">
+          <div class="col-sm">
             {% if messages %}
               {% for message in messages %}
                 <div class="alert alert-{{ message.tags }}">
