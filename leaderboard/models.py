@@ -13,6 +13,7 @@ from django.db.models import Case, When
 
 class Prize(models.Model):
     total_prize = models.IntegerField(default=0, unique=True)
+    logo_image = models.ImageField(default='logo_akvs47-main.png', upload_to='logo_pics')
 
     def __str__(self):
         return str(self.total_prize)
