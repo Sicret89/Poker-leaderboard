@@ -6,7 +6,7 @@ from leaderboard.models import Player
 from .models import Csv
 from .forms import CsvModelForm
 import csv
-
+from django.core.files.storage import default_storage as storage
 
 def upload_file_view(request):
     form = CsvModelForm(request.POST or None, request.FILES or None)
@@ -14,15 +14,7 @@ def upload_file_view(request):
         form.save()
         form = CsvModelForm()
         obj = Csv.objects.get(activated=False)
-        s3 = boto3.client('s3')
-        bucket = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-        result = s3.list_objects(Bucket=bucket, Prefix='/csvs/')
-        print(result)
-        # for o in result.get('Contents'):
-        #     data = s3.get_object(Bucket=bucket, Key=o.get('Key'))
-        #     contents = data['Body'].read()
-        #     print(contents.decode("utf-8"))
-        with open(obj.file_name.name, 'r', encoding='utf-8-sig') as f:
+        with storage.open(obj.file_name.name, 'r') as f:
             reader = csv.reader(f, delimiter=";")
             for row1 in reader:
                 season = row1[0]
