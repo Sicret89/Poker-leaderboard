@@ -1,3 +1,5 @@
+import io
+
 from django.shortcuts import render
 
 from leaderboard.models import Player
@@ -13,7 +15,7 @@ def upload_file_view(request):
         form = CsvModelForm()
         obj = Csv.objects.get(activated=False)
         with open(obj.file_name.name, 'r', encoding='utf-8-sig') as f:
-            reader = csv.reader(f, delimiter=";")
+            reader = csv.reader(io.StringIO(f), delimiter=";")
             for row1 in reader:
                 season = row1[0]
                 bonus_ak = season + 'B_AK'
