@@ -12,7 +12,7 @@ def upload_file_view(request):
         form.save()
         form = CsvModelForm()
         obj = Csv.objects.get(activated=False)
-        with open(obj.file_name.name, 'r', encoding='utf-8-sig') as f:
+        with open(obj.file_name.path, 'r', encoding='utf-8-sig') as f:
             reader = csv.reader(f, delimiter=";")
             for row1 in reader:
                 season = row1[0]
