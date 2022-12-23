@@ -11,11 +11,6 @@
 <form action="{% url 'upload-view' %}" method="POST" class="ui form" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|crispy }}
-      <ul class="messages">
-      {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-      {% endfor %}
-  </ul>
     <button type="submit" class="btn btn-secondary">Confirm</button>
 </form>
 
