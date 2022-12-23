@@ -37,6 +37,6 @@ def upload_file_view(request):
                 messages.success(request, 'File upload successful')
             except (FieldError, IndexError) as e:
                 obj.delete()
-                messages.error(request, f'File upload failed: {e}')
+                messages.warning(request, f'File upload failed: {e}')
                 logging.exception('')
     return render(request, 'leaderboard/upload.html', {'form': form})
