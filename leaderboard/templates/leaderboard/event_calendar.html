@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{%extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+{% if object_list %}
+    {% for event in event_list %}
+        <article style="background-color: #f1f6f9" class="media content-section">
+            {% if event.event_image %}
+            <img class="rounded-circle article-img" src=#>
+            {% else %}
+                <div class="media-body">
+                {% if user.is_superuser %}
+                <h3><a class="article-title" href="{% url 'event' event.id %}" style="text-decoration: none">{{ event.name }}</a></h3>
+                <p class="article-content">{{ event.notes }}</p>
+                {% else %}
+                <h3><a class="article-title" style="text-decoration: none">{{ event.name }}</a></h3>
+                <p class="article-content">{{ event.notes }}</p>
+                </div>
+                {% endif %}
+            {% endif %}
+         </article>
+    {% endfor %}
+{% else %}
+<p><b>No upcoming events</b></p>
+{% endif %}
+{% endblock content %}

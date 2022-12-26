@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.widgets import HiddenInput
-from .models import Player, Prize
+from .models import Player, Prize, Event
 
 
 class PlayerUpdateForm(forms.ModelForm):
@@ -46,3 +46,30 @@ class PrizeUpdateForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['total_prize'].widget.attrs.update(
             {'class': 'form-control', 'style': ' background-color: #FFFFFF; color: #000000;'})
+
+
+class EventUpdateForm(forms.ModelForm):
+
+    event_date = forms.DateField(widget=forms.TextInput(attrs={"type": "date"}), required=True)
+
+    class Meta:
+        model = Event
+        fields = '__all__'
+
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['name'].widget.attrs.update(
+    #         {'class': 'form-control', 'style': ' background-color: #FFFFFF; color: #000000;'})
+    #     self.fields['event_date'].widget.attrs.update(
+    #         {'class': 'datepicker', 'style': ' background-color: #FFFFFF; color: #000000;'})
+    #     self.fields['notes'].widget.attrs.update(
+    #         {'class': 'form-control', 'style': ' background-color: #FFFFFF; color: #000000;'})
+
+class EventCreateForm(forms.ModelForm):
+
+    event_date = forms.DateField(widget=forms.TextInput(attrs={"type": "date"}), required=True)
+
+    class Meta:
+        model = Event
+        fields = '__all__'

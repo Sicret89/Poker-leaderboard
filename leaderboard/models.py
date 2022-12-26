@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from datetime import datetime
+
 from django.contrib.auth.models import User
 
 from leaderboard.managers import PlayerManager
@@ -18,6 +20,13 @@ class Prize(models.Model):
     def __str__(self):
         return str(self.total_prize)
 
+class Event(models.Model):
+    name = models.CharField(max_length=256)
+    event_date = models.DateField(help_text=u'Day of the event')
+    notes = models.TextField(help_text=u'Textual Notes', blank=True, null=True)
+
+    def __str__(self):
+        return str(self.name)
 
 class Player(models.Model):
     name = models.CharField(max_length=256)
