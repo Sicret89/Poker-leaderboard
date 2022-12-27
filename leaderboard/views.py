@@ -6,6 +6,7 @@ from leaderboard.forms import PlayerUpdateForm, PrizeUpdateForm, EventUpdateForm
 from leaderboard.models import Player, Prize, Event
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 class Index(generic.ListView):
@@ -76,8 +77,8 @@ class EventView(generic.ListView):
 class EventUpdateView(SuccessMessageMixin, generic.UpdateView):
     model = Event
     form_class = EventUpdateForm
-    template_name = 'leaderboard/event.html'
-    success_url = reverse_lazy('events')
+    template_name = 'leaderboard/event_update.html'
+    success_url = reverse_lazy('events-list')
     success_message = "%(name)s was edited successfully."
 
     def get_queryset(self):
@@ -93,10 +94,21 @@ class EventCreateView(SuccessMessageMixin, generic.CreateView):
     model = Event
     form_class = EventCreateForm
     template_name = 'leaderboard/event_add.html'
-    success_url = reverse_lazy('events')
+    success_url = reverse_lazy('events-list')
     success_message = "Your event has been Created!"
 
     def get_context_data(self, **kwargs):
         context = super(EventCreateView, self).get_context_data(**kwargs)
         context['prize_list'] = Prize.objects.all()
         return context
+
+
+class EventDeleteView(SuccessMessageMixin, generic.DeleteView):
+    model = Event
+    template_name = 'leaderboard/event_confirm_delete.html'
+    success_url = reverse_lazy('events-list')
+    success_message = "Your event has been Deleted!"
+
+    def delete(self, request, *args, **kwargs):
+        messages.warning(self.request, self.success_message)
+        return super(EventDeleteView, self).delete(request, *args, **kwargs)

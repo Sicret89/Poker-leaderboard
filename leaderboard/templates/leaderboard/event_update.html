@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{%extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<title>Update Event</title>
+<h1> Update event </h1>
+
+
+<div class="forms">
+    <form method="POST">
+
+        {% csrf_token %}
+        {{form|crispy}}
+        {{ form.date }}
+
+            <div class="button">
+                <button type="submit" class="btn btn-secondary">Update</button>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' object.id %}">Delete</a>
+            </div>
+    </form>
+</div>
+
+{% endblock content %}

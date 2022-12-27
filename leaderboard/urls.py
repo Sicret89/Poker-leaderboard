@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from .views import Index, DashboardView, PrizeUpdateView, Season, EventView, EventUpdateView, EventCreateView
+from .views import Index, DashboardView, PrizeUpdateView, Season, EventView, EventUpdateView, EventCreateView, EventDeleteView
 
 urlpatterns = [
     path("", Index.as_view(), name="leaderboard_list"),
@@ -19,7 +19,8 @@ urlpatterns = [
     path("E10/", Season.as_view(), name="episode10"),
     path("E11/", Season.as_view(), name="episode11"),
     path("E12/", Season.as_view(), name="episode12"),
-    path('events/', EventView.as_view(), name='events'),
-    path('events/create/', EventCreateView.as_view(), name='event_create'),
+    path('events/', EventView.as_view(), name='events-list'),
+    path('events/create/', EventCreateView.as_view(), name='event-create'),
     path('events/<int:pk>/', EventUpdateView.as_view(), name='event'),
+    path('events/<int:pk>/delete/', EventDeleteView.as_view(), name='event-delete'),
 ]

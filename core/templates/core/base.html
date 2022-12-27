@@ -38,8 +38,8 @@
                   <div class="navbar-nav mr-auto">
                         <a class="navbar-brand mr-4" href="{% url 'leaderboard_list' %}">Leaderboard</a>
                     {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'events' %}">Events</a>
-                        <a class="nav-item nav-link" href="{% url 'event_create' %}">Event Create</a>
+                        <a class="nav-item nav-link" href="{% url 'events-list' %}">Events</a>
+                        <a class="nav-item nav-link" href="{% url 'event-create' %}">Event Create</a>
                         <a class="nav-item nav-link" href="{% url 'upload-view' %}">Add CSV</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% endif %}
