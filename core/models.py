@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils import timezone
 from django.urls import reverse
+from django.utils import timezone
 
 
 class News(models.Model):
@@ -14,4 +14,4 @@ class News(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
+        return reverse("post-detail", kwargs={"pk": self.pk})

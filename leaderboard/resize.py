@@ -1,8 +1,8 @@
-from django.core.files import File
-from pathlib import Path
-from PIL import Image
 from io import BytesIO
+from pathlib import Path
 
+from django.core.files import File
+from PIL import Image
 
 image_types = {
     "jpg": "JPEG",

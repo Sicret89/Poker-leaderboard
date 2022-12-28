@@ -7,17 +7,24 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Csv',
+            name="Csv",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('file_name', models.FileField(upload_to='csvs')),
-                ('uploaded', models.DateTimeField(auto_now_add=True)),
-                ('activated', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("file_name", models.FileField(upload_to="csvs")),
+                ("uploaded", models.DateTimeField(auto_now_add=True)),
+                ("activated", models.BooleanField(default=False)),
             ],
         ),
     ]

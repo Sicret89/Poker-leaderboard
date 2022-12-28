@@ -6,17 +6,30 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('leaderboard', '0003_prize_logo_image'),
+        ("leaderboard", "0003_prize_logo_image"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('event_date', models.DateField(help_text='Day of the event')),
-                ('notes', models.TextField(blank=True, help_text='Textual Notes', null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("event_date", models.DateField(help_text="Day of the event")),
+                (
+                    "notes",
+                    models.TextField(
+                        blank=True, help_text="Textual Notes", null=True
+                    ),
+                ),
             ],
         ),
     ]

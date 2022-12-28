@@ -1,12 +1,21 @@
 from django.urls import path
 
 from . import views
-from .views import Index, DashboardView, PrizeUpdateView, Season, EventView, EventUpdateView, EventCreateView, EventDeleteView
+from .views import (
+    DashboardView,
+    EventCreateView,
+    EventDeleteView,
+    EventUpdateView,
+    EventView,
+    Index,
+    PrizeUpdateView,
+    Season,
+)
 
 urlpatterns = [
     path("", Index.as_view(), name="leaderboard_list"),
-    path('player/<int:pk>/', DashboardView.as_view(), name='dashboard'),
-    path('prize/<int:pk>/', PrizeUpdateView.as_view(), name='total_prize'),
+    path("player/<int:pk>/", DashboardView.as_view(), name="dashboard"),
+    path("prize/<int:pk>/", PrizeUpdateView.as_view(), name="total_prize"),
     path("E1/", Season.as_view(), name="episode1"),
     path("E2/", Season.as_view(), name="episode2"),
     path("E3/", Season.as_view(), name="episode3"),
@@ -19,8 +28,12 @@ urlpatterns = [
     path("E10/", Season.as_view(), name="episode10"),
     path("E11/", Season.as_view(), name="episode11"),
     path("E12/", Season.as_view(), name="episode12"),
-    path('events/', EventView.as_view(), name='events-list'),
-    path('events/create/', EventCreateView.as_view(), name='event-create'),
-    path('events/<int:pk>/', EventUpdateView.as_view(), name='event'),
-    path('events/<int:pk>/delete/', EventDeleteView.as_view(), name='event-delete'),
+    path("events/", EventView.as_view(), name="events-list"),
+    path("events/create/", EventCreateView.as_view(), name="event-create"),
+    path("events/<int:pk>/", EventUpdateView.as_view(), name="event"),
+    path(
+        "events/<int:pk>/delete/",
+        EventDeleteView.as_view(),
+        name="event-delete",
+    ),
 ]

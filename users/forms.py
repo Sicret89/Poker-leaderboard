@@ -1,6 +1,7 @@
 from django import forms
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 from .models import Profile
 
 
@@ -9,12 +10,14 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ["username", "email", "password1", "password2"]
 
     def clean_email(self):
-        if User.objects.filter(email=self.cleaned_data['email']).exists():
-            raise forms.ValidationError("The given email is already registered")
-        return self.cleaned_data['email']
+        if User.objects.filter(email=self.cleaned_data["email"]).exists():
+            raise forms.ValidationError(
+                "The given email is already registered"
+            )
+        return self.cleaned_data["email"]
 
 
 class UserUpdateForm(forms.ModelForm):
@@ -22,7 +25,7 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ["username", "email"]
 
     def clean_email(self):
         email = self.cleaned_data["email"]
@@ -31,10 +34,12 @@ class UserUpdateForm(forms.ModelForm):
             return email
         if not qs.exists():
             return email
-        raise forms.ValidationError(f'Sorry email address: {email} is already registered. Please try different email.')
+        raise forms.ValidationError(
+            f"Sorry email address: {email} is already registered. Please try different email."
+        )
 
 
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image']
+        fields = ["image"]
