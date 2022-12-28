@@ -1,11 +1,18 @@
 repos:
-  - repo: https://github.com/psf/black
-    rev: 20.8b1
+-   repo: https://github.com/asottile/seed-isort-config
+    rev: v1.9.3
     hooks:
-      - id: black
-        language_version: python
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.7.0
+    - id: seed-isort-config
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: v4.3.21
     hooks:
-      - id: isort
-        language_version: python
+    - id: isort
+-   repo: https://github.com/ambv/black
+    rev: stable
+    hooks:
+    - id: black
+      language_version: python3.9
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    - id: flake8
