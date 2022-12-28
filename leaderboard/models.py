@@ -1,37 +1,40 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from datetime import datetime
-
 from django.contrib.auth.models import User
-
-from leaderboard.managers import PlayerManager
 from django.db import models
-from django.db.models import F, IntegerField
+from django.db.models import Case, F, IntegerField, When
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.db.models import Case, When
+
+from leaderboard.managers import PlayerManager
 
 
 class Prize(models.Model):
     total_prize = models.IntegerField(default=0, unique=True)
-    logo_image = models.ImageField(default='logo_akvs47-main.png', upload_to='logo_pics')
+    logo_image = models.ImageField(
+        default="logo_akvs47-main.png", upload_to="logo_pics"
+    )
 
     def __str__(self):
         return str(self.total_prize)
 
+
 class Event(models.Model):
     name = models.CharField(max_length=256)
-    event_date = models.DateField(help_text=u'Day of the event')
-    notes = models.TextField(help_text=u'Textual Notes', blank=True, null=True)
+    event_date = models.DateField(help_text="Day of the event")
+    notes = models.TextField(help_text="Textual Notes", blank=True, null=True)
 
     def __str__(self):
         return str(self.name)
 
+
 class Player(models.Model):
     name = models.CharField(max_length=256)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    jocker_image = models.ImageField(default='jocker.jpg', upload_to='jocker_pics')
+    image = models.ImageField(default="default.jpg", upload_to="profile_pics")
+    jocker_image = models.ImageField(
+        default="jocker.jpg", upload_to="jocker_pics"
+    )
     E1 = models.IntegerField(default=0)
     E1B_AK = models.IntegerField(default=0)
     E1B_47 = models.IntegerField(default=0)
@@ -83,46 +86,65 @@ class Player(models.Model):
     _total = None
 
     objects = PlayerManager(
-        total=F('E1') + F('E1B_AK') + F('E1B_47') +
-              F('E2') + F('E2B_AK') + F('E2B_47') +
-              F('E3') + F('E3B_AK') + F('E3B_47') +
-              F('E4') + F('E4B_AK') + F('E4B_47') +
-              F('E5') + F('E5B_AK') + F('E5B_47') +
-              F('E6') + F('E6B_AK') + F('E6B_47') +
-              F('E7') + F('E7B_AK') + F('E7B_47') +
-              F('E8') + F('E8B_AK') + F('E8B_47') +
-              F('E9') + F('E9B_AK') + F('E9B_47') +
-              F('E10') + F('E10B_AK') + F('E10B_47') +
-              F('E11') + F('E11B_AK') + F('E11B_47') +
-              F('E12') + F('E12B_AK') + F('E12B_47') +
-              Case(
-                  When(E1_JOCKER=True, then=(F('E1') + F('E1B_AK') + F('E1B_47'))
-                       ),
-                  When(E2_JOCKER=True, then=(F('E2') + F('E2B_AK') + F('E2B_47'))
-                       ),
-                  When(E3_JOCKER=True, then=(F('E3') + F('E3B_AK') + F('E3B_47'))
-                       ),
-                  When(E4_JOCKER=True, then=(F('E4') + F('E4B_AK') + F('E4B_47'))
-                       ),
-                  When(E5_JOCKER=True, then=(F('E5') + F('E5B_AK') + F('E5B_47'))
-                       ),
-                  When(E6_JOCKER=True, then=(F('E6') + F('E6B_AK') + F('E6B_47'))
-                       ),
-                  When(E7_JOCKER=True, then=(F('E7') + F('E7B_AK') + F('E7B_47'))
-                       ),
-                  When(E8_JOCKER=True, then=(F('E8') + F('E8B_AK') + F('E8B_47'))
-                       ),
-                  When(E9_JOCKER=True, then=(F('E9') + F('E9B_AK') + F('E9B_47'))
-                       ),
-                  When(E10_JOCKER=True, then=(F('E10') + F('E10B_AK') + F('E10B_47'))
-                       ),
-                  When(E11_JOCKER=True, then=(F('E11') + F('E11B_AK') + F('E11B_47'))
-                       ),
-                  When(E12_JOCKER=True, then=(F('E12') + F('E12B_AK') + F('E12B_47'))
-                       ),
-                  default=0,
-                  output_field=IntegerField(),
-              ))
+        total=F("E1")
+        + F("E1B_AK")
+        + F("E1B_47")
+        + F("E2")
+        + F("E2B_AK")
+        + F("E2B_47")
+        + F("E3")
+        + F("E3B_AK")
+        + F("E3B_47")
+        + F("E4")
+        + F("E4B_AK")
+        + F("E4B_47")
+        + F("E5")
+        + F("E5B_AK")
+        + F("E5B_47")
+        + F("E6")
+        + F("E6B_AK")
+        + F("E6B_47")
+        + F("E7")
+        + F("E7B_AK")
+        + F("E7B_47")
+        + F("E8")
+        + F("E8B_AK")
+        + F("E8B_47")
+        + F("E9")
+        + F("E9B_AK")
+        + F("E9B_47")
+        + F("E10")
+        + F("E10B_AK")
+        + F("E10B_47")
+        + F("E11")
+        + F("E11B_AK")
+        + F("E11B_47")
+        + F("E12")
+        + F("E12B_AK")
+        + F("E12B_47")
+        + Case(
+            When(E1_JOCKER=True, then=(F("E1") + F("E1B_AK") + F("E1B_47"))),
+            When(E2_JOCKER=True, then=(F("E2") + F("E2B_AK") + F("E2B_47"))),
+            When(E3_JOCKER=True, then=(F("E3") + F("E3B_AK") + F("E3B_47"))),
+            When(E4_JOCKER=True, then=(F("E4") + F("E4B_AK") + F("E4B_47"))),
+            When(E5_JOCKER=True, then=(F("E5") + F("E5B_AK") + F("E5B_47"))),
+            When(E6_JOCKER=True, then=(F("E6") + F("E6B_AK") + F("E6B_47"))),
+            When(E7_JOCKER=True, then=(F("E7") + F("E7B_AK") + F("E7B_47"))),
+            When(E8_JOCKER=True, then=(F("E8") + F("E8B_AK") + F("E8B_47"))),
+            When(E9_JOCKER=True, then=(F("E9") + F("E9B_AK") + F("E9B_47"))),
+            When(
+                E10_JOCKER=True, then=(F("E10") + F("E10B_AK") + F("E10B_47"))
+            ),
+            When(
+                E11_JOCKER=True, then=(F("E11") + F("E11B_AK") + F("E11B_47"))
+            ),
+            When(
+                E12_JOCKER=True, then=(F("E12") + F("E12B_AK") + F("E12B_47"))
+            ),
+            default=0,
+            output_field=IntegerField(),
+        )
+    )
 
     @property
     def total_e1(self):
@@ -195,7 +217,6 @@ class Player(models.Model):
         if self.E12_JOCKER:
             return (self.E12 + self.E12B_47 + self.E12B_AK) * 2
         return self.E12 + self.E12B_47 + self.E12B_AK
-
 
     def __str__(self):
         return self.name
