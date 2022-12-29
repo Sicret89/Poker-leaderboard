@@ -1,6 +1,6 @@
 import datetime
 
-from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
@@ -81,7 +81,9 @@ class EventView(generic.ListView):
         return context
 
 
-class EventUpdateView(SuccessMessageMixin, generic.UpdateView):
+class EventUpdateView(
+    LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView
+):
     model = Event
     form_class = EventUpdateForm
     template_name = "leaderboard/event_update.html"
@@ -97,7 +99,9 @@ class EventUpdateView(SuccessMessageMixin, generic.UpdateView):
         return context
 
 
-class EventCreateView(SuccessMessageMixin, generic.CreateView):
+class EventCreateView(
+    LoginRequiredMixin, SuccessMessageMixin, generic.CreateView
+):
     model = Event
     form_class = EventCreateForm
     template_name = "leaderboard/event_add.html"
@@ -110,12 +114,10 @@ class EventCreateView(SuccessMessageMixin, generic.CreateView):
         return context
 
 
-class EventDeleteView(SuccessMessageMixin, generic.DeleteView):
+class EventDeleteView(
+    LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView
+):
     model = Event
     template_name = "leaderboard/event_confirm_delete.html"
     success_url = reverse_lazy("events-list")
     success_message = "Your event has been Deleted!"
-
-    def delete(self, request, *args, **kwargs):
-        messages.warning(self.request, self.success_message)
-        return super(EventDeleteView, self).delete(request, *args, **kwargs)
