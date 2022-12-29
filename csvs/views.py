@@ -46,7 +46,7 @@ def upload_file_view(request):
                 obj.activated = True
                 obj.save()
                 messages.success(request, "File upload successful")
-            except (FieldError, IndexError) as e:
+            except (FieldError, Exception) as e:
                 obj.delete()
                 messages.warning(request, f"File upload failed: {e}")
                 logging.exception("")
