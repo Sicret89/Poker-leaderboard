@@ -1,5 +1,4 @@
 import csv
-import logging
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -51,5 +50,4 @@ def upload_file_view(request):
             except (FieldError, Exception) as e:
                 obj.delete()
                 messages.warning(request, f"File upload failed: {e}")
-                logging.exception("")
     return render(request, "leaderboard/upload.html", {"form": form})
