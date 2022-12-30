@@ -2,6 +2,7 @@ import csv
 import logging
 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import FieldError
 from django.core.files.storage import default_storage as storage
 from django.shortcuts import render
@@ -12,6 +13,7 @@ from .forms import CsvModelForm
 from .models import Csv
 
 
+@login_required
 def upload_file_view(request):
     form = CsvModelForm(request.POST or None, request.FILES or None)
     if form.is_valid():
