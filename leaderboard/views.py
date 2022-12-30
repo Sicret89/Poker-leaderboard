@@ -27,7 +27,9 @@ class Index(generic.ListView):
         return context
 
 
-class DashboardView(SuccessMessageMixin, generic.UpdateView):
+class DashboardView(
+    LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView
+):
     model = Player
     form_class = PlayerUpdateForm
     template_name = "leaderboard/dashboard.html"
@@ -56,7 +58,9 @@ class Season(generic.ListView):
         return context
 
 
-class PrizeUpdateView(SuccessMessageMixin, generic.UpdateView):
+class PrizeUpdateView(
+    LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView
+):
     model = Prize
     form_class = PrizeUpdateForm
     template_name = "leaderboard/total_prize.html"
