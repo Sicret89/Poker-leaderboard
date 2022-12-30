@@ -22,7 +22,9 @@ class Prize(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=256)
-    event_date = models.DateField(help_text="Day of the event")
+    event_date = models.DateTimeField(
+        blank=True, null=True, help_text="Day of the event"
+    )
     notes = models.TextField(help_text="Textual Notes", blank=True, null=True)
 
     def __str__(self):
