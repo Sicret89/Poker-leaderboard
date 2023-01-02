@@ -103,8 +103,11 @@ class PrizeUpdateForm(forms.ModelForm):
 
 class EventUpdateForm(forms.ModelForm):
 
-    event_date = forms.DateField(
-        widget=forms.TextInput(attrs={"type": "date"}), required=True
+    event_date = forms.DateTimeField(
+        input_formats=["%I:%MM %p %d-%b-%Y"],
+        widget=forms.DateTimeInput(
+            attrs={"type": "datetime-local"}, format="%I:%MM %p %d-%b-%Y"
+        ),
     )
 
     class Meta:
