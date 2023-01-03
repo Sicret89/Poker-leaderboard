@@ -173,7 +173,7 @@ LOGGING = {
         },
     },
     "loggers": {
-        "testlogger": {
+        "django-logger": {
             "handlers": ["console"],
             "level": "INFO",
         }

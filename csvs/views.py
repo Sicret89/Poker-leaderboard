@@ -1,4 +1,5 @@
 import csv
+import logging
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -10,6 +11,8 @@ from leaderboard.models import Player
 
 from .forms import CsvModelForm
 from .models import Csv
+
+logger = logging.getLogger(__name__)
 
 
 @login_required
@@ -50,4 +53,5 @@ def upload_file_view(request):
             except (FieldError, Exception) as e:
                 obj.delete()
                 messages.warning(request, f"File upload failed: {e}")
+                logger.exception(f"CSV file import failed due to {e}")
     return render(request, "leaderboard/upload.html", {"form": form})
