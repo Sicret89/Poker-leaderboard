@@ -14,11 +14,11 @@
                     <div class="media-body">
                     {% if user.is_superuser %}
                     <h3><a class="article-title" href="{% url 'event' event.id %}" style="text-decoration: none">{{ event.name }}</a></h3>
-                    <small class="text-muted">{{ event.event_date|date:'d, E, Y, H:i' }}</small>
+                    <small class="text-muted">{{ event.event_date|date:'D, d, E, Y, H:i' }}</small>
                     <p class="article-content">{{ event.notes }}</p>
                     {% else %}
                     <h3><a class="article-title" style="text-decoration: none">{{ event.name }}</a></h3>
-                    <small class="text-muted">{{ event.event_date|date:'d, E, Y, H:i' }}</small>
+                    <small class="text-muted">{{ event.event_date|date:'D, d, E, Y, H:i' }}</small>
                     <p class="article-content">{{ event.notes }}</p>
                     </div>
                     {% endif %}
