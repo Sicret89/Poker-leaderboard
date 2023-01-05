@@ -23,7 +23,7 @@
             <th scope="col"><a class="episode-link" href="{% url 'episode10' %}">E10</a>
             <th scope="col"><a class="episode-link" href="{% url 'episode11' %}">E11</a>
             <th scope="col"><a class="episode-link" href="{% url 'episode12' %}">E12</a>
-            <th scope="col">Total</th>
+            <th scope="col" class="sticky-row">Total</th>
             {% if user.is_superuser %}
             <th>Actions</th>
             {% endif %}
@@ -152,7 +152,7 @@
               {% else %}
               <td>{{ player.total_e12 }}</td>
               {% endif %}
-              <th>{{ player.total }}</th>
+              <th class="sticky-row">{{ player.total }}</th>
               {% if user.is_superuser %}
                 <td class="text-center">
                     <a href="{% url 'dashboard' player.id %}"

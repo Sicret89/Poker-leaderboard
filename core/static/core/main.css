@@ -104,3 +104,10 @@ body {
     background: #f1f6f9;
     border-radius: 20px;
   }
+
+  .sticky-row {
+    position: sticky;
+    right: 0;
+    background:#d5e3ec !important;
+    opacity: 1;
+  }
